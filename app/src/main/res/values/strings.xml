@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Quiz</string>
+
+    <string name="button_true">Prawda</string>
+    <string name="button_false">Falsz</string>
+    <string name="button_next">Nastepne</string>
+
+    <string name="q_licznosc_continuum">Liczb rzeczywistych od 1 do 3 jest wiecej niz od 1 do 2</string>
+    <string name="q_licznosc_alef_0">Liczb naturalnych jest mniej niz liczb calkowitych</string>
+    <string name="q_dzielenie">Dzielenie jest dzialaniem w ciele liczb calkowitych</string>
+    <string name="q_mnozenie">Mnozenie jest dzielaniem w ciele liczb calkowitych</string>
+    <string name="q_kryptografia">Wspolczesna kryptografia opiera sie na rozkladzie liczb pierwszych</string>
+
+    <string name="correct_answer">Poprawna odpowiedz</string>
+    <string name="incorrect_answer">Niepoprawna odpowiedz</string>
+
+    <string name="result">Twoj wynik to %1$d/%2$d</string>
+</resources>
