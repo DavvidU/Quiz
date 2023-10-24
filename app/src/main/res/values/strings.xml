@@ -1,20 +1,31 @@
 <resources>
     <string name="app_name">Quiz</string>
 
+    <!-- MainActivity -->
     <string name="button_true">Prawda</string>
     <string name="button_false">Falsz</string>
     <string name="button_next">Nastepne</string>
+    <string name="button_podpowiedz">Podpowiedź</string>
 
+    <!-- Pytania -->
     <string name="q_licznosc_continuum">Liczb rzeczywistych od 1 do 3 jest wiecej niz od 1 do 2</string>
     <string name="q_licznosc_alef_0">Liczb naturalnych jest mniej niz liczb calkowitych</string>
     <string name="q_dzielenie">Dzielenie jest dzialaniem w ciele liczb calkowitych</string>
     <string name="q_mnozenie">Mnozenie jest dzielaniem w ciele liczb calkowitych</string>
     <string name="q_kryptografia">Wspolczesna kryptografia opiera sie na rozkladzie liczb pierwszych</string>
 
+    <!-- Podpowiedzi -->
+    <string name="q_licznosc_continuum_podpowiedz">Istnieje bijekcja ze zbioru liczb rzeczywistych od 1 do 3 na zbiór liczb rzeczywistych od 1 do 2</string>
+    <string name="q_licznosc_alef_0_podpowiedz">Istnieje bijekcja ze zbioru liczb naturalnch na zbiór liczb całkowitych</string>
+    <string name="q_dzielenie_podpowiedz">Dzieląc dwie liczby całkowite można uzyskać liczbę wykraczającą poza ten zbiór (np. 2/3 = 0,(6))</string>
+    <string name="q_mnozenie_podpowiedz">Mnożąc dowolne dwie liczby całkowite uzyskany wynik zawsze będzie liczbą całkowitą</string>
+    <string name="q_kryptografia_podpowiedz">Jednym z najpopularniejszych algorytmów kryptograficznych jest algorytm RSA</string>
+
+    <!-- Feedback na odpowiedz -->
     <string name="correct_answer">Poprawna odpowiedz</string>
     <string name="incorrect_answer">Niepoprawna odpowiedz</string>
-
     <string name="result">Twoj wynik to %1$d/%2$d</string>
+    <string name="odpowiedz_po_podpowiedzi">Odpowiadasz na pytanie po zobaczeniu podpowiedzi</string>
 
     <!-- log debug messages -->
     <string name="debug_tag">ALFC</string>
@@ -24,5 +35,9 @@
     <string name="debug_onPause">Wywolanie metody onPause</string>
     <string name="debug_onResume">Wywolanie metody onResume</string>
     <string name="debug_onCreate">Wywolanie metody onCreate</string>
+    <string name="debug_onSaveInstanceState">Wywolanie metody onSaveInstanceState</string>
 
+    <!-- PromptActivity -->
+    <string name="czy_na_pewno">Czy na pewno chcesz zobaczyć podpowiedź?</string>
+    <string name="button_pokaz_podpowiedz">Pokaż podpowiedź</string>
 </resources>

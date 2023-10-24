@@ -1,7 +1,10 @@
 package com.example.quiz;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,17 +13,29 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String KEY_CURRENT_INDEX = "currentIndex";
+    private static final String KEY_SCORED_TQ = "ptsScoredTQ";
+    private static final String KEY_SCORED_WR = "ptsScoredWR";
+    private static final String KEY_FIRST_QUESTION = "keyFQ";
+    private static final int REQUEST_CODE_PROMPT = 0;
+    public static final String KEY_PODPOWIEDZ = "com.example.quiz.id_podpowiedzi";
     private Button trueButton;
     private Button falseButton;
     private Button nextButton;
+    private Button podpowiedzButton;
     private TextView questionTextView;
 
     private Question[] questions = new Question[]{
-            new Question(R.string.q_licznosc_continuum, false),
-            new Question(R.string.q_licznosc_alef_0, false),
-            new Question(R.string.q_dzielenie, false),
-            new Question(R.string.q_mnozenie, true),
-            new Question(R.string.q_kryptografia, true)
+            new Question(R.string.q_licznosc_continuum, false,
+                    R.string.q_licznosc_continuum_podpowiedz),
+            new Question(R.string.q_licznosc_alef_0, false,
+                    R.string.q_licznosc_alef_0_podpowiedz),
+            new Question(R.string.q_dzielenie, false,
+                    R.string.q_dzielenie_podpowiedz),
+            new Question(R.string.q_mnozenie, true,
+                    R.string.q_mnozenie_podpowiedz),
+            new Question(R.string.q_kryptografia, true,
+                    R.string.q_kryptografia_podpowiedz)
     };
 
     private int currentIndex = 0;
@@ -39,7 +54,30 @@ public class MainActivity extends AppCompatActivity {
     private String debug_onPause;
     private String debug_onResume;
     private String debug_onCreate;
+    private String debug_onSaveInstanceState;
 
+    private boolean answerWasShown;
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != RESULT_OK) { return; }
+        if (requestCode == REQUEST_CODE_PROMPT)
+        {
+            if (data == null) { return; }
+            answerWasShown = data.getBooleanExtra(PromptActivity.KEY_EXTRA_ANSWER_SHOWN, false);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(debug_tag, debug_onSaveInstanceState);
+        outState.putInt(KEY_CURRENT_INDEX, currentIndex);
+        outState.putInt(KEY_SCORED_TQ, pointsScoredThisQuestion);
+        outState.putInt(KEY_SCORED_WR, pointsScoredOverWholeRun);
+        outState.putBoolean(KEY_FIRST_QUESTION, isItFirstQuestion);
+
+    }
     @Override
     protected void onStart() {
         super.onStart();
@@ -81,14 +119,25 @@ public class MainActivity extends AppCompatActivity {
         debug_onPause = getResources().getString(R.string.debug_onPause);
         debug_onResume = getResources().getString(R.string.debug_onResume);
         debug_onCreate = getResources().getString(R.string.debug_onCreate);
+        debug_onSaveInstanceState = getResources().getString(R.string.debug_onSaveInstanceState);
 
         Log.d(debug_tag, debug_onCreate);
 
         setContentView(R.layout.activity_main);
 
+        if (savedInstanceState != null)
+        {
+            currentIndex = savedInstanceState.getInt(KEY_CURRENT_INDEX);
+            pointsScoredThisQuestion = savedInstanceState.getInt(KEY_SCORED_TQ);
+            pointsScoredOverWholeRun = savedInstanceState.getInt(KEY_SCORED_WR);
+            if (currentIndex != 0)
+                isItFirstQuestion = savedInstanceState.getBoolean(KEY_FIRST_QUESTION);
+        }
         trueButton = findViewById(R.id.true_button);
         falseButton = findViewById(R.id.false_button);
         nextButton = findViewById(R.id.next_button);
+        podpowiedzButton = findViewById(R.id.prompt_button);
+
         questionTextView = findViewById(R.id.question_text_view);
 
 
@@ -108,7 +157,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 currentIndex = (currentIndex + 1)%questions.length;
+                answerWasShown = false;
                 setNextQuestion();
+            }
+        });
+        podpowiedzButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PromptActivity.class);
+                int id_podpowiedzi = questions[currentIndex].getPodpowiedzId();
+                intent.putExtra(KEY_PODPOWIEDZ, id_podpowiedzi);
+                startActivityForResult(intent, REQUEST_CODE_PROMPT);
             }
         });
         setNextQuestion();
@@ -118,6 +177,11 @@ public class MainActivity extends AppCompatActivity {
     {
         boolean correctAnswer = questions[currentIndex].isTrueAnswer();
         int resultMessageId = 0;
+        if (answerWasShown)
+        {
+            resultMessageId = R.string.odpowiedz_po_podpowiedzi;
+            Toast.makeText(this, resultMessageId, Toast.LENGTH_SHORT).show();
+        }
         if (userAnswer == correctAnswer) {
             pointsScoredThisQuestion = 1;
             resultMessageId = R.string.correct_answer;

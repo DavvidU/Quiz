@@ -3,10 +3,12 @@ package com.example.quiz;
 public class Question {
     private int questionId;
     private boolean trueAnswer;
-    public Question(int questionId, boolean trueAnswer)
+    private int podpowiedzId;
+    public Question(int questionId, boolean trueAnswer, int podpowiedzId)
     {
         this.questionId = questionId;
         this.trueAnswer = trueAnswer;
+        this.podpowiedzId = podpowiedzId;
     }
     public boolean isTrueAnswer()
     {
@@ -16,4 +18,5 @@ public class Question {
     {
         return questionId;
     }
+    public int getPodpowiedzId() { return podpowiedzId; }
 }

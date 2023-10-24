@@ -42,3 +42,5 @@ Fapp/src/androidTest/java/com/example/quiz/ExampleInstrumentedTest.java,d\a\da2
 0app/src/main/java/com/example/quiz/Question.java,c\9\c97244618e27ee7d3581fe78892ff4adefa63ba0
 g
 7app/src/test/java/com/example/quiz/ExampleUnitTest.java,c\8\c89b029ad1e251c46d669cf75c48d4c1dfae313d
+S
+#app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e

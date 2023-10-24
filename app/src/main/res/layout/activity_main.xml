@@ -40,5 +40,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     </Button>
+    <Button
+        android:id="@+id/prompt_button"
+        android:text="@string/button_podpowiedz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </Button>
 
 </LinearLayout>

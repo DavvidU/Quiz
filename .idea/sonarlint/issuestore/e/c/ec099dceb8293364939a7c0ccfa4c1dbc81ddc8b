@@ -1,13 +1,23 @@
 
 J
-java:S1604+"(Make this anonymous inner class a lambda(Üà¨¯üÿÿÿÿ8²í§«´1
+java:S1604l"(Make this anonymous inner class a lambda(Üà¨¯üÿÿÿÿ8‡ü˜¶1
 E
-java:S16041"(Make this anonymous inner class a lambda(éäó‚8³í§«´1
+java:S1604r"(Make this anonymous inner class a lambda(éäó‚8‡ü˜¶1
 J
-java:S16047"(Make this anonymous inner class a lambda(ÈŒèâüÿÿÿÿ8³í§«´1
+java:S1604x"(Make this anonymous inner class a lambda(ÈŒèâüÿÿÿÿ8‡ü˜¶1
+p	java:S116%"TRename this field "debug_tag" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¹£8¥ü˜¶1
+y	java:S116&"XRename this field "debug_onStart" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é—Áÿÿÿÿÿ8¦ü˜¶1
+s	java:S116'"WRename this field "debug_onStop" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡Áö®8¦ü˜¶1
+u	java:S116("ZRename this field "debug_onDestroy" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹–Ñ8¦ü˜¶1
+t	java:S116)"XRename this field "debug_onPause" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şèÍ…8¦ü˜¶1
+z	java:S116*"YRename this field "debug_onResume" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àşûîûÿÿÿÿ8¦ü˜¶1
+u	java:S116+"YRename this field "debug_onCreate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥ªÆ8¦ü˜¶1
+…	java:S116,"dRename this field "debug_onSaveInstanceState" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È­§öÿÿÿÿÿ8¦ü˜¶1
+z
+java:S1450+"]Remove the "debug_onCreate" field and declare it as a local variable in the relevant methods.(¥ªÆ8²ü˜¶1
 w
-java:S1450"ZRemove the "falseButton" field and declare it as a local variable in the relevant methods.(Ôœ8Úí§«´1
+java:S1450"ZRemove the "falseButton" field and declare it as a local variable in the relevant methods.(Ôœ8³ü˜¶1
 {
-java:S1450"YRemove the "nextButton" field and declare it as a local variable in the relevant methods.(º€ü‰ùÿÿÿÿ8Úí§«´1
+java:S1450"YRemove the "nextButton" field and declare it as a local variable in the relevant methods.(º€ü‰ùÿÿÿÿ8³ü˜¶1
 {
-java:S1450"YRemove the "trueButton" field and declare it as a local variable in the relevant methods.(Ãş×Äüÿÿÿÿ8Ûí§«´1
+java:S1450"YRemove the "trueButton" field and declare it as a local variable in the relevant methods.(Ãş×Äüÿÿÿÿ8³ü˜¶1
