@@ -3,6 +3,7 @@ package com.example.quiz;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -30,15 +31,66 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean isItFirstQuestion = true;
 
+
+    private String debug_tag;
+    private String debug_onStart;
+    private String debug_onStop;
+    private String debug_onDestroy;
+    private String debug_onPause;
+    private String debug_onResume;
+    private String debug_onCreate;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(debug_tag, debug_onStart);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(debug_tag, debug_onStop);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(debug_tag, debug_onDestroy);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(debug_tag, debug_onPause);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(debug_tag, debug_onResume);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        debug_tag = getResources().getString(R.string.debug_tag);
+        debug_onStart = getResources().getString(R.string.debug_onStart);
+        debug_onStop = getResources().getString(R.string.debug_onStop);
+        debug_onDestroy = getResources().getString(R.string.debug_onDestroy);
+        debug_onPause = getResources().getString(R.string.debug_onPause);
+        debug_onResume = getResources().getString(R.string.debug_onResume);
+        debug_onCreate = getResources().getString(R.string.debug_onCreate);
+
+        Log.d(debug_tag, debug_onCreate);
+
         setContentView(R.layout.activity_main);
 
         trueButton = findViewById(R.id.true_button);
         falseButton = findViewById(R.id.false_button);
         nextButton = findViewById(R.id.next_button);
         questionTextView = findViewById(R.id.question_text_view);
+
 
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -15,4 +15,14 @@
     <string name="incorrect_answer">Niepoprawna odpowiedz</string>
 
     <string name="result">Twoj wynik to %1$d/%2$d</string>
+
+    <!-- log debug messages -->
+    <string name="debug_tag">ALFC</string>
+    <string name="debug_onStart">Wywolanie metody onStart</string>
+    <string name="debug_onStop">Wywolanie metody onStop</string>
+    <string name="debug_onDestroy">Wywolanie metody onDestroy</string>
+    <string name="debug_onPause">Wywolanie metody onPause</string>
+    <string name="debug_onResume">Wywolanie metody onResume</string>
+    <string name="debug_onCreate">Wywolanie metody onCreate</string>
+
 </resources>
